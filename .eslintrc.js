@@ -1,5 +1,7 @@
 module.exports = {
   root: true,
+
+  ignorePatterns: ['public/'],
   parserOptions: {
     parser: 'babel-eslint',
     ecmaVersion: 2018,
@@ -13,6 +15,12 @@ module.exports = {
   },
 
   rules: {
+    'prettier/prettier': [
+      'error',
+      {
+        endOfLine: 'auto',
+      },
+    ],
     indent: ['error', 2, { SwitchCase: 1 }],
     'space-infix-ops': ['error', { int32Hint: false }],
     'key-spacing': [
@@ -42,7 +50,7 @@ module.exports = {
       parser: '@typescript-eslint/parser',
       extends: [
         'plugin:@typescript-eslint/recommended', // Uses the recommended rules from the @typescript-eslint/eslint-plugin
-        'prettier/@typescript-eslint',
+        // 'prettier/@typescript-eslint',
       ],
     },
   ],
