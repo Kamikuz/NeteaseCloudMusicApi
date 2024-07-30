@@ -21,7 +21,7 @@ module.exports = {
         endOfLine: 'auto',
       },
     ],
-    indent: ['error', 2, { SwitchCase: 1 }],
+    indent: ['error', 2, { SwitchCase: 1, MemberExpression: 1 }],
     'space-infix-ops': ['error', { int32Hint: false }],
     'key-spacing': [
       2,

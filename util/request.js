@@ -50,7 +50,7 @@ const createRequest = (method, uri, data = {}, options) => {
       headers['X-Real-IP'] = ip
       headers['X-Forwarded-For'] = ip
     }
-    // headers['X-Real-IP'] = '118.88.88.88'
+    headers['X-Real-IP'] = '118.88.88.68'
     if (typeof options.cookie === 'object') {
       options.cookie = {
         ...options.cookie,
@@ -120,7 +120,7 @@ const createRequest = (method, uri, data = {}, options) => {
           osver: cookie.osver || '17.4.1', //系统版本
           deviceId: cookie.deviceId || global.deviceId,
           os: cookie.os || 'ios',
-          appver: cookie.appver || (cookie.os != 'pc' ? iosAppVersion : ''), // app版本
+          appver: cookie.appver || (cookie.os !== 'pc' ? iosAppVersion : ''), // app版本
           versioncode: cookie.versioncode || '140', //版本号
           mobilename: cookie.mobilename || '', //设备model
           buildver: cookie.buildver || Date.now().toString().substr(0, 10),
@@ -143,6 +143,7 @@ const createRequest = (method, uri, data = {}, options) => {
         let eapi = () => {
           // 使用eapi加密
           data.header = header
+          /* eslint-disable indent */
           data.e_r =
             options.e_r != undefined
               ? options.e_r
